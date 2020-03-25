@@ -18,6 +18,7 @@ namespace WebCrawler
                 switch (length)
                 {
                     case 0:
+                        Console.WriteLine("Please pass in the url of the site to be crawled.");
                         break;
                     case 1:
                         string url = args[0].ToString();
@@ -29,7 +30,7 @@ namespace WebCrawler
                             PrintCrawlList(site);
                         }
                         else
-                            throw new Exception("the url must start with http:// or https://");
+                            throw new Exception("the url must start with http:// or https://.");
                         break;
                     default:
                         break;
