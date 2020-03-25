@@ -22,18 +22,30 @@ namespace WebCrawler
                .SetBasePath(Directory.GetCurrentDirectory())
                .AddJsonFile("appsettings.json");
 
-
-
                 IConfiguration config = new ConfigurationBuilder()
                     .AddJsonFile("appsettings.json", true, true)
                     .Build();
 
-                Console.WriteLine($" URL { config["url"] } !");
                 int length = args.Length;
                 switch (length)
                 {
                     case 0:
-                        Console.WriteLine("Please pass in the url of the site to be crawled.");
+                        string jurl = config["url"];
+                        if (jurl != null)
+                        {
+                            if (CheckUrl(jurl))
+                            {
+                                Console.WriteLine("Site is " + jurl);
+                                Console.WriteLine();
+                                string site = TestCrawl(jurl);
+                                PrintCrawlList(site);
+                            }
+                            else
+                                throw new Exception("the url must start with http:// or https://.");
+                        }
+                        else {
+                            throw new Exception("There is no url in the appsettings.json file.");
+                        }
                         break;
                     case 1:
                         string url = args[0].ToString();
