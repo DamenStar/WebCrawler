@@ -12,17 +12,34 @@ namespace WebCrawler
 
         static void Main(string[] args)
         {
-            if (args.Length != 1 || args.Length > 1)
-                Console.WriteLine("Please enter WebCrawler url");
-            else
+            try
             {
-                Console.WriteLine(args[0].ToString());
-            }
-            var url = args[0].ToString();
-            string site = TestCrawl(url);
-            PrintCrawlList(site);
+                int length = args.Length;
+                switch (length)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        string url = args[0].ToString();
+                        if (CheckUrl(url))
+                        {
+                            Console.WriteLine("Site is " + url);
+                            Console.WriteLine();
+                            string site = TestCrawl(url);
+                            PrintCrawlList(site);
+                        }
+                        else
+                            throw new Exception("the url must start with http:// or https://");
+                        break;
+                    default:
+                        break;
+                }
 
-            Console.ReadLine();
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine(except.Message);
+            }
         }
 
         async static private Task<String> Crawl(string url)
