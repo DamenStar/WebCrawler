@@ -7,6 +7,9 @@ namespace WebCrawler
 {
     class Program
     {
+        static string baseHttp = "http://";
+        static string baseHttps = "https://";
+
         static void Main(string[] args)
         {
             if (args.Length != 1 || args.Length > 1)
@@ -48,6 +51,15 @@ namespace WebCrawler
                 string hrefValue = link.GetAttributeValue("href", string.Empty);
                 Console.WriteLine(hrefValue);
             }
+        }
+
+        private static bool CheckUrl(string pUrl)
+        {
+
+            if ((pUrl.StartsWith(baseHttp)) || (pUrl.StartsWith(baseHttps)))
+                return true;
+            else
+                return false;
         }
     }
 
