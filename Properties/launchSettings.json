@@ -1,8 +1,7 @@
 {
   "profiles": {
     "WebCrawler": {
-      "commandName": "Project",
-      "commandLineArgs": "http://wiprodigital.com"
+      "commandName": "Project"
     }
   }
 }
