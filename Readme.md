@@ -2,7 +2,7 @@
 
 I built the WebCrawler application using .NET Core 3.1 with C#. It uses built in framework features suxch as tasks, configuration with json files, and HttpClient.
 
-It is a .NET Core console applicatioin. I used the HtmlAgilityPack component which is an HTML parser written in C# to read/write DOM as well as plain XPATH or XSLT. This component
+It is a .NET Core console application. I used the HtmlAgilityPack component which is an HTML parser written in C# to read/write DOM as well as plain XPATH or XSLT. This component
 comes from nuget which is the package manager for .NET and .NET Core.
 
 The application also can run in Docker. The Dockerfile is included. 
@@ -18,23 +18,22 @@ It retrieves the elements of a site and using XPATH to retrieve the links and se
 
 Additional Features:
 
-If I was going to enhance this application, I would have turned this into a microservice or service using ASP.NET Core. This would allow to run a a lightweight process using the
-lighweight web server, Kestrel. This can be exposed through an API gateway such as nginx. I would have stored the data retrieved in a database like Postgres or SQLServer. Going beyond
+If I was going to enhance this application, I would have turned this into a microservice or service using ASP.NET Core. This would allow to run a lightweight process using the
+lightweight web server, Kestrel. This can be exposed through an API gateway such as nginx. I would have stored the data retrieved in a database like Postgres or SQLServer. Going beyond
 these features would require the following considerations:
 
 I would have to have to deal with storage and extensibility. Since the crawler could search sites with a lot of links, this would generate a lot of data. This could require that the 
-data be compressed. This would also require the crawler be using a framework in order to make extensible to adjust to changing requirments. The crawler would need to deal with other
-languages other than English. The crawler would need to considerate of the sites crawled so as to not effect their performance and bandwidth.
+data be compressed. This would also require the crawler be using a framework in order to make extensible to adjust to changing requirements. The crawler would need to deal with other
+languages other than English. The crawler would need to considerate of the sites crawled to not affect their performance and bandwidth.
 
-Github: https://github.com/DamenStar/WebCrawler
+GitHub: https://github.com/DamenStar/WebCrawler
 
 Mac Usage:
 
-Note: I have no experience with the Mac and have never used so my knowledge is based on documentation. It is supposed to work the same based on articles:
+Note: I have no experience with the Mac and have never used it with .NET Core, but it runs the same on the Mac and Linux. Here are a couple articles on .NET Core on the Mac:
 
 https://www.davidhayden.me/blog/visual-studio-code-for-developing-net-core-c-apps-on-macos
 https://jakeydocs.readthedocs.io/en/latest/tutorials/your-first-mac-aspnet.html
-I also checked with a friend who builds .NET Core apps on the Mac.
 
 Go the page: https://dotnet.microsoft.com/download/dotnet-core/3.1 (SDK 3.1.201)
 
