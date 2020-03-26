@@ -1,8 +1,9 @@
 ﻿# WebCrawler
 
-I built the WebCrawler application using .NET Core 3.1 using C#. It uses all built in framework features suxch as tasks, configuration with json files, and HttpClient.
+I built the WebCrawler application using .NET Core 3.1 with C#. It uses built in framework features suxch as tasks, configuration with json files, and HttpClient.
 
-It is a .NET Core console applicatioin. I used the HtmlAgilityPack component which is an HTML parser written in C# to read/write DOM as well as plain XPATH or XSLT. 
+It is a .NET Core console applicatioin. I used the HtmlAgilityPack component which is an HTML parser written in C# to read/write DOM as well as plain XPATH or XSLT. This component
+comes from nuget which is the package manager for .NET and .NET Core.
 
 The application also can run in Docker. The Dockerfile is included. 
 
@@ -13,7 +14,7 @@ There is appsettings.json file that contains:
 
 This defines the site that is to be crawled. One can pass in argument that defines either the site above or another site.
 
-It retrieves ths and using XPATH to retrieve the links and send them to standard output.
+It retrieves the elements of a site and using XPATH to retrieve the links and send them to standard output.
 
 Additional Features:
 
@@ -21,8 +22,8 @@ If I was going to enhance this application, I would have turned this into a micr
 lighweight web server, Kestrel. This can be exposed through an API gateway such as nginx. I would have stored the data retrieved in a database like Postgres or SQLServer. Going beyond
 these features would require the following considerations:
 
-I would have to have to deal with storage and extensibility. Since the cralwer could search sites with a lot of links, this would generate a lot of data. This could require that the 
-data be compressed. This would also require the crawler be using a framework in order to make extensible to adjust to changing requirments. The cralwer would need to deal with other
+I would have to have to deal with storage and extensibility. Since the crawler could search sites with a lot of links, this would generate a lot of data. This could require that the 
+data be compressed. This would also require the crawler be using a framework in order to make extensible to adjust to changing requirments. The crawler would need to deal with other
 languages other than English. The crawler would need to considerate of the sites crawled so as to not effect their performance and bandwidth.
 
 Github: https://github.com/DamenStar/WebCrawler
@@ -33,6 +34,7 @@ Note: I have no experience with the Mac and have never used so my knowledge is b
 
 https://www.davidhayden.me/blog/visual-studio-code-for-developing-net-core-c-apps-on-macos
 https://jakeydocs.readthedocs.io/en/latest/tutorials/your-first-mac-aspnet.html
+I also checked with a friend who builds .NET Core apps on the Mac.
 
 Go the page: https://dotnet.microsoft.com/download/dotnet-core/3.1 (SDK 3.1.201)
 
@@ -40,7 +42,7 @@ Download the version for the Mac
 
 Open a command prompt and change directory to the WebCrawler directory.
 
-At the top level of the directory, run the commands:
+At the top level of the WebCrawler directory, run the commands:
 
 dotnet restore
 dotnet build
@@ -171,9 +173,12 @@ Mac - Docker Usage:
 Docker Installation:
 
 https://docs.docker.com/docker-for-mac/install/
-.
 
 Before you can add the .NET Core app to the Docker image, you must do the following:
+
+Open a command prompt and change directory to the WebCrawler directory.
+
+At the top level of the WebCrawler directory, run the commands:
 
 dotnet publish -c Release
 
@@ -452,6 +457,10 @@ https://docs.docker.com/docker-for-windows/install/
 This requires that Windows 10 be either Professional or Enterprise.
 
 Before you can add the .NET Core app to the Docker image, you must do the following:
+
+Open a command prompt and change directory to the WebCrawler directory.
+
+At the top level of the WebCrawler directory, run the commands:
 
 dotnet publish -c Release
 
